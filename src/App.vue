@@ -39,8 +39,8 @@
 <script>
 // firebase モジュール
 import firebase from 'firebase'
-// 改行を <br> タグに変換するモジュール
 import Nl2br from 'vue-nl2br'
+
 export default {
   components: { Nl2br },
   data() {
@@ -53,6 +53,8 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged(user => {
       this.user = user ? user : {}
+      console.log("this is info")
+      console.log(user)
       const ref_message = firebase.database().ref('message')
       if (user) {
         this.chat = []
